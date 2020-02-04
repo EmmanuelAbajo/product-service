@@ -8,16 +8,17 @@
     "start:dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Amakachi/react-app.git"
+    "url": "git+https://github.com/EmmanuelAbajo/product-service.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Amakachi/react-app/issues"
+    "url": "https://github.com/EmmanuelAbajo/product-service/issues"
   },
-  "homepage": "https://github.com/Amakachi/react-app#readme",
+  "homepage": "https://github.com/EmmanuelAbajo/product-service#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
