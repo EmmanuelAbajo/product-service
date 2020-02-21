@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { createProduct, fetchProduct, fetchProducts } from '../constants/constants'
-import { Observable, throwError } from 'rxjs';
+import { Observable, throwError, of } from 'rxjs';
 import { Product } from '../models/product';
 import { catchError, map, tap, retry } from 'rxjs/operators';
 import { IProduct } from '../models/dataproduct';
@@ -54,8 +54,9 @@ export class RestclientService {
         `body was: ${error.error}`);
     }
     // return an observable with a user-facing error message
-    return throwError(
-      'Something bad happened; please try again later.');
+    return throwError(error.error.error);
   };
+
+
 
 }

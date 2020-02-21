@@ -1,4 +1,12 @@
-<table class="table table-striped">
+<form class="form-inline">
+    <div class="form-group">
+        <label for="search-query">Enter Product Id:</label>
+        <input type="text" id="search-query" class="form-control" required #searchBox>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="fetchProductById(searchBox.value)">Search</button>
+</form><hr>
+
+<table class="table table-striped" *ngIf="data.length >= 1 else EmptyTable">
     <thead>
         <tr>
             <th *ngFor="let item of columns">{{ item }}</th>
@@ -15,3 +23,6 @@
         </tr>
     </tbody>
 </table>
+<ng-template #EmptyTable>
+    <h2>{{ errorMessage }}</h2>
+</ng-template>
