@@ -18,7 +18,7 @@ export class RegistrationpageComponent implements OnInit {
   ngOnInit(): void {
     this.isClickable = false;
     this.emailAddress = '';
-    this.data = this.dataService.fetchData();
+    this.dataService.fetchData().subscribe((data: User[]) => {this.data = data});
   }
 
   name: string = "Emmanuel";

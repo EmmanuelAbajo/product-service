@@ -1,5 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { User } from '../models/user';
+import { Observable,of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,11 +15,11 @@ export class DataserviceService {
 
   statusUpdated = new EventEmitter<string>();
 
-  fetchData(): User[] {
-    return this.data;
+  fetchData(): Observable<User[]> {
+    return of(this.data);
   }
 
-  create(firstName: string, lastName: string, age: number) {
+  create(firstName: string, lastName: string, age: number): void {
         this.data.push({
           firstName,
           lastName,

@@ -5,7 +5,9 @@ const ProductRepository = {
     getAllProducts: async () => {
         try {
             const count = await Product.estimatedDocumentCount({});
-            const products = await Product.find().select("_id name price").exec();
+            const products = await Product.find()
+            // .select("_id name price")
+            .exec();
             return { count, products }
         } catch (error) {
             throw error;
@@ -15,7 +17,7 @@ const ProductRepository = {
     getProductById: async (id) => {
         try {
             const data = await Product.findById(id)
-                .select("_id name description price category image color")
+                // .select("_id name description price category image color")
                 .exec();
             return data;
         } catch (error) {
