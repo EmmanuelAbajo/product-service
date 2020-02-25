@@ -1,7 +1,7 @@
-<form class="form-inline">
+<form class="form-inline justify-content-between">
     <div class="form-group">
         <label for="search-query">Enter Product Id:</label>
-        <input type="text" id="search-query" class="form-control" required #searchBox>
+        <input type="text" id="search-query" class="form-control ml-3" required #searchBox>
     </div>
     <button type="submit" class="btn btn-primary" (click)="fetchProductById(searchBox.value)">Search</button>
 </form><hr>

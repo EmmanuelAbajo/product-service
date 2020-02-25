@@ -1,1 +1,12 @@
-<p>header works!</p>
+<div id="nav-header">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}"
+                [routerLink]="['/app','register']">Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+                [routerLink]="['/app','product']">Product</a>
+        </li>
+    </ul>
+</div>

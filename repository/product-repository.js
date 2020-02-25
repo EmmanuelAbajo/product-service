@@ -19,7 +19,8 @@ const ProductRepository = {
             const data = await Product.findById(id)
                 // .select("_id name description price category image color")
                 .exec();
-            return data;
+                if (!data) throw new Error('Id not found!');
+            return data;     
         } catch (error) {
             throw error;
         }

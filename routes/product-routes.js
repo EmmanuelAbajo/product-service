@@ -1,4 +1,5 @@
 const express = require('express');
+// const ObjectId = require('mongoose').Types.ObjectId
 const { ObjectID } = require('mongodb');
 const { upload } = require('../config/imageConfig');
 const ProductRepo = require('../repository/product-repository');
@@ -40,14 +41,14 @@ function routes(Product) {
         .get((req, res) => {
             let id = req.params.id;
             if (!ObjectID.isValid(id))
-                return res.status(404).json({
+                   return res.status(404).json({
                     error: "Invalid id"
                 });
             ProductRepo.getProductById(id)
                 .then((data) => {
                     res.status(200).json(data);
                 }).catch((error) => {
-                    res.status(400).json(error);
+                    res.status(400).json({error:error.message});
                 })
         });
 

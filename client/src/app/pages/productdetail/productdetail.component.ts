@@ -19,7 +19,7 @@ export class ProductdetailComponent implements OnInit {
       .subscribe(
         (products: Product[]) => { this.data = products; },
         (error) => {
-          this.errorMessage = error;
+          this.errorMessage = error.error;
           this.data = [];
         }
       )
@@ -32,7 +32,7 @@ export class ProductdetailComponent implements OnInit {
         this.data.push(product)
       },
         (error) => {
-          this.errorMessage = error;
+          this.errorMessage = error.error;
           this.data = [];
         });
   }
