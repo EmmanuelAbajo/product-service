@@ -1,24 +1,21 @@
 const express = require('express');
+// const ObjectId = require('mongoose').Types.ObjectId
 const { ObjectID } = require('mongodb');
 const { upload } = require('../config/imageConfig');
+const ProductRepo = require('../repository/product-repository');
+
 
 function routes(Product) {
     const ProductRouter = express.Router();
 
     ProductRouter.route('/product')
         .get((req, res) => {
-            Product.find()
-                .select("_id name price")
-                .exec()
-                .then((products) => {
-                    res.json({
-                        products
-                    });
-                }).catch((err) => {
-                    res.status(400).json({
-                        error: err
-                    });
-                });
+            ProductRepo.getAllProducts()
+                .then((data) => {
+                    res.status(200).json(data);
+                }).catch((error) => {
+                    res.status(400).json({ error });
+                })
         })
 
         .post(upload.single('image'), (req, res) => {
@@ -43,19 +40,16 @@ function routes(Product) {
     ProductRouter.route('/product/:id')
         .get((req, res) => {
             let id = req.params.id;
-            if (!ObjectID.isValid(id)) return res.status(404).json({
-                error: "Invalid id"
-            });
-            Product.findById(id)
-                .select("_id name description price category image color")
-                .exec()
-                .then((data) => {
-                    res.json(data);
-                }).catch((err) => {
-                    res.status(400).json({
-                        error: err
-                    });
+            if (!ObjectID.isValid(id))
+                   return res.status(404).json({
+                    error: "Invalid id"
                 });
+            ProductRepo.getProductById(id)
+                .then((data) => {
+                    res.status(200).json(data);
+                }).catch((error) => {
+                    res.status(400).json({error:error.message});
+                })
         });
 
     return ProductRouter;

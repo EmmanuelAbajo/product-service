@@ -1,0 +1,28 @@
+<form class="form-inline justify-content-between">
+    <div class="form-group">
+        <label for="search-query">Enter Product Id:</label>
+        <input type="text" id="search-query" class="form-control ml-3" required #searchBox>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="fetchProductById(searchBox.value)">Search</button>
+</form><hr>
+
+<table class="table table-striped" *ngIf="data.length >= 1 else EmptyTable">
+    <thead>
+        <tr>
+            <th *ngFor="let item of columns">{{ item }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of data">
+            <td>{{ product.name }}</td>
+            <td>{{ product.description }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.category }}</td>
+            <td>{{ product.image }}</td>
+            <td>{{ product.color }}</td>
+        </tr>
+    </tbody>
+</table>
+<ng-template #EmptyTable>
+    <h2>{{ errorMessage }}</h2>
+</ng-template>
