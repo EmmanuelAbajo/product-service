@@ -5,12 +5,14 @@ import { PagesComponent } from './pages.component';
 import { SharedModule } from '../shared/shared.module';
 import { RegistrationpageComponent } from './registrationpage/registrationpage.component';
 import { FormsModule } from '@angular/forms';
-import { ProductdetailComponent } from './productdetail/productdetail.component';
+import { ProductTableComponent } from './product-table/product-table.component';
+import { ProductpageComponent } from './productpage/productpage.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 
 
 @NgModule({
-  declarations: [PagesComponent, RegistrationpageComponent, ProductdetailComponent],
+  declarations: [PagesComponent, RegistrationpageComponent, ProductpageComponent, ProductTableComponent, ProductDetailComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,

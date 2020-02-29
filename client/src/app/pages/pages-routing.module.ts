@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PagesComponent } from './pages.component';
 import { RegistrationpageComponent } from './registrationpage/registrationpage.component';
-import { ProductdetailComponent } from './productdetail/productdetail.component';
+import { ProductpageComponent } from './productpage/productpage.component';
+import { ProductTableComponent } from './product-table/product-table.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 
 const routes: Routes = [{
@@ -18,7 +20,12 @@ const routes: Routes = [{
     },
     {
       path: 'product',
-      component: ProductdetailComponent
+      component: ProductpageComponent,
+      children: [
+        {path: 'detail',component: ProductTableComponent},
+        {path: 'detail/:id',component: ProductDetailComponent}
+        
+      ]
     }
   ]
 }

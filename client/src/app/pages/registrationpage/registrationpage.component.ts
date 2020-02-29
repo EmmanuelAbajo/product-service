@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
 import { DataserviceService } from 'src/app/services/dataservice.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-registrationpage',
@@ -8,32 +9,31 @@ import { DataserviceService } from 'src/app/services/dataservice.service';
   styleUrls: ['./registrationpage.component.css']
 })
 export class RegistrationpageComponent implements OnInit {
-
-  public isClickable: boolean;
   public emailAddress: string;
-  public data: User[] = [];
+  public data: User[];
+  public columns: string[];
+  public name: string;
+  public age: number;
 
-  constructor(private dataService: DataserviceService) { }
+
+  constructor(private dataService: DataserviceService,
+              private router: Router,
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.isClickable = false;
     this.emailAddress = '';
     this.dataService.fetchData().subscribe((data: User[]) => {this.data = data});
-  }
-
-  name: string = "Emmanuel";
-  age: number = 25;
-  columns: string[] = ['First Name', 'Last Name', 'Age']
-  
-
-  setClickable(): void {
-    setTimeout(() => {
-      this.isClickable = true;
-    }, 2000)
+    this.columns = ['First Name', 'Last Name', 'Age'];
+    this.name = "Emmanuel";
+    this.age = 25;
   }
 
   getAge(): number {
     return this.age;
+  }
+
+  addProduct(): void{
+      this.router.navigate(['../product'],{relativeTo: this.route});
   }
 
 

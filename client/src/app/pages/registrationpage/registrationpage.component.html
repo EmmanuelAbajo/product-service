@@ -3,7 +3,7 @@
     <label for="email">Email</label>
     <input type="text" name="email" id="email" class="form-control" [(ngModel)]="emailAddress">
 </div>
-<button class="btn btn-primary" (click)="setClickable()" [disabled]="isClickable">Add new</button>
+<button class="btn btn-primary" (click)="addProduct()">Add new</button>
 <p>Email Address: {{ emailAddress }}</p>
 <table class="table table-striped">
     <thead>
