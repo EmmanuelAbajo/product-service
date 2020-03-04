@@ -8,11 +8,12 @@ import { FormsModule } from '@angular/forms';
 import { ProductTableComponent } from './product-table/product-table.component';
 import { ProductpageComponent } from './productpage/productpage.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 
 @NgModule({
-  declarations: [PagesComponent, RegistrationpageComponent, ProductpageComponent, ProductTableComponent, ProductDetailComponent],
+  declarations: [PagesComponent, RegistrationpageComponent, ProductpageComponent, ProductTableComponent, ProductDetailComponent, PageNotFoundComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,
