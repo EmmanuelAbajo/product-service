@@ -2,6 +2,7 @@
 node_modules
 package-lock.json
 db-connection.js
+uploads
 
 # compiled output
 client/dist

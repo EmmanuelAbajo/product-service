@@ -1,0 +1,128 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "description": "Swagger API for Product Service",
+        "version": "1.0.0",
+        "title": "Product Service"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000/api/v1"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Product",
+            "description": "Models products"
+        }
+    ],
+    "paths": {
+        "/product": {
+            "post": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Creates a new product",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Product"
+                            }
+                        }
+                    },
+                    "responses": {
+                        "201": {
+                            "description": "Successfully created"
+                        },
+                        "400": {
+                            "description":"Client-side error"
+                        },
+                        "500": {
+                            "description":"Server-side Error"
+                        }
+                    }
+                }
+            },
+
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Gets all products",
+                "responses": {
+                    "200": {
+                    "description": "Operation successful"
+                    },
+                    "400": {
+                        "description": "Client-side error"
+                    },
+                    "500": {
+                    "description": "Server-side Error"
+                    }
+                }
+            }
+        },
+
+        "/product/{id}": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Gets product by id",
+                "parameters": [
+                    {
+                      "name": "id",
+                      "in": "path",
+                      "required": true,
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "responses": {
+                    "200": {
+                    "description": "Operation successful"
+                    },
+                    "400": {
+                        "description": "Client-side error"
+                    },
+                    "500": {
+                    "description": "Server Error"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "ApiKeyAuth": {
+            "type": "apiKey",
+            "in": "header",
+            "name": "authorization"
+            }
+        },
+        "schemas": {
+            "Product": {
+                "type": "object",
+                "required": [
+                    "name",
+                    "description",
+                    "price",
+                    "category",
+                    "image",
+                    "color"
+                ],
+                "properties": {
+                    "name": { "type": "string"},
+                    "description": { "type": "string"},
+                    "price": { "type": "string"},
+                    "category": { "type": "string"},
+                    "image": { "type": "string", "format": "binary" },
+                    "color": { "type": "string"}
+                }
+            }
+        }
+    }
+}
