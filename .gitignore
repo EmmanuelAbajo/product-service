@@ -3,6 +3,7 @@ node_modules
 package-lock.json
 db-connection.js
 uploads
+.env
 
 # compiled output
 client/dist
