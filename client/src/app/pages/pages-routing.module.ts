@@ -11,7 +11,7 @@ const routes: Routes = [{
   path: '',
   component: PagesComponent,
   children: [
-    { 
+    {
       path: '', redirectTo: 'register', pathMatch: 'full'
     },
     {
@@ -22,9 +22,9 @@ const routes: Routes = [{
       path: 'product',
       component: ProductpageComponent,
       children: [
-        {path: 'detail',component: ProductTableComponent},
-        {path: 'detail/:id',component: ProductDetailComponent}
-        
+        {path: 'detail', component: ProductTableComponent},
+        {path: 'detail/:id', component: ProductDetailComponent}
+
       ]
     }
   ]

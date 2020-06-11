@@ -8,15 +8,15 @@ import { Router } from '@angular/router';
 })
 export class ProductpageComponent implements OnInit {
   constructor(private router: Router) { }
-  
+
   ngOnInit(): void {}
 
-  fetchProductById(_id): void {
-    this.router.navigate(['/app','product','detail',_id])
+  fetchProductById(id: string): void {
+    this.router.navigate(['/app', 'product', 'detail', id]);
   }
 
   fetchAll(): void {
-    this.router.navigate(['/app','product','detail'])
+    this.router.navigate(['/app', 'product', 'detail']);
   }
-  
+
 }

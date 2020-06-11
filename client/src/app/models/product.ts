@@ -4,7 +4,7 @@ export interface Product {
     description: string;
     price: string;
     category: string;
-    image: string;
+    image?: string;
     color: string;
     __v?: number
 }

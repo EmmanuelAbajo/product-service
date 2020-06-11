@@ -15,24 +15,24 @@ export class ProductDetailComponent implements OnInit {
 
   constructor(private restClient: RestclientService,
               private route: ActivatedRoute) { }
-  
+
   ngOnInit(): void {
-    this.columns = ['Name', 'Description', 'Price', 'Category', 'Image', 'Color'];  
+    this.columns = ['id', 'Name', 'Description', 'Price', 'Category', 'Color'];
     this.errorMessage = '';
     this.data = [];
     this.route.params.subscribe(
-      ((param: Params)=>{
-        this.fetchProductById(param['id']);
+      ((param: Params) => {
+        this.fetchProductById(param.id);
       })
-    )
-    
+    );
+
   }
 
   fetchProductById(id: string): void {
     this.restClient.getProductById(id)
       .subscribe((product: Product) => {
         this.data = [];
-        this.data.push(product)
+        this.data.push(product);
       },
         (error) => {
           this.errorMessage = error.error;

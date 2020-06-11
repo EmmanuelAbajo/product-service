@@ -6,11 +6,12 @@
     </thead>
     <tbody>
         <tr *ngFor="let product of data">
+            <td>{{ product._id }}</td>
             <td>{{ product.name }}</td>
             <td>{{ product.description }}</td>
             <td>{{ product.price }}</td>
             <td>{{ product.category }}</td>
-            <td>{{ product.image }}</td>
+            <!-- <td>{{ product.image }}</td> -->
             <td>{{ product.color }}</td>
         </tr>
     </tbody>

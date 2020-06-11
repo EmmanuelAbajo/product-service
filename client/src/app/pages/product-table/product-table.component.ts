@@ -16,7 +16,7 @@ export class ProductTableComponent implements OnInit {
   constructor(private restClient: RestclientService) { }
 
   ngOnInit(): void {
-    this.columns = ['Name', 'Description', 'Price', 'Category', 'Image', 'Color'];
+    this.columns = ['ID', 'Name', 'Description', 'Price', 'Category', 'Color'];
     this.errorMessage = '';
     this.data = [];
     this.fetchAllProducts();
